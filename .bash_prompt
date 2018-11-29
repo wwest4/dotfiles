@@ -1,0 +1,8 @@
+GIT_PROMPT="/usr/share/git/git-prompt.sh"
+if [ -s "$GIT_PROMPT" ]; then
+    source "$GIT_PROMPT"
+    GIT_PS1_SHOWDIRTYSTATE=true
+    GIT_PS1_SHOWCOLORHINTS=true
+    GIT_PS1_UNTRACKEDFILES=true
+    PROMPT_COMMAND="__git_ps1 '\u@\h:\w' '\\$ '"
+fi
