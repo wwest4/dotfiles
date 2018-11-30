@@ -11,7 +11,7 @@ alias python='python3'
 alias httpd-rb='ruby -run -ehttpd . -p8000'
 alias httpd-py='python -m SimpleHTTPServer'
 alias httpd-git='git instaweb'
-alias vi='vim'
+alias vi='vim -p'
 alias xlock='xscreensaver-command --lock'
 
 
@@ -29,11 +29,13 @@ RVM_SCRIPTS="$HOME/.rvm/scripts/rvm"
 GIT_COMPLETION="/usr/share/git/completion/git-completion.bash"
 BASH_COMPLETION="/usr/share/bash-completion/bash_completion"
 BASH_PROMPT="$HOME/.bash_prompt"
+BASHRC_LOCAL="$HOME/.bashrc_local"
 
 [[ -s "$RVM_SCRIPTS" ]] && source "$RVM_SCRIPTS"
 [[ -s "$GIT_COMPLETION" ]] && source "$GIT_COMPLETION"
 [[ -s "$BASH_COMPLETION" ]] && source "$BASH_COMPLETION"
 [[ -s "$BASH_PROMPT" ]] && source "$BASH_PROMPT"
+[[ -s "$BASHRC_LOCAL" ]] && source "$BASHRC_LOCAL"
 
 
 if type tmux > /dev/null        \
