@@ -5,17 +5,24 @@ case "$-" in
 esac
 
 
-alias cubic='flatpak run com.cubicsdr.App'
-alias esp='java -jar ~/Downloads/ESPlorer/ESPlorer.jar'
-alias python='python3'
-alias httpd-rb='ruby -run -ehttpd . -p8000'
-alias httpd-py='python -m SimpleHTTPServer'
-alias httpd-git='git instaweb'
-alias vi='vim -p'
-alias xlock='xscreensaver-command --lock'
+if [ "$(uname)" = "Darwin" ]; then
+    alias date='gdate'
+    alias docker-net-fix='sudo ifconfig vboxnet0 down && sudo ifconfig vboxnet0 up'
+else
+    alias christine='grep -v pristine'
+    alias cubic='flatpak run com.cubicsdr.App'
+    alias esp='java -jar ~/usr/local/ESPlorer/ESPlorer.jar'
+    alias python='python3'
+    alias httpd-rb='ruby -run -ehttpd . -p8000'
+    alias httpd-py='python -m SimpleHTTPServer'
+    alias httpd-git='git instaweb'
+    alias top='htop'
+    alias vi='vim'
+fi
 
 
 export EDITOR=vim
+export SVN_EDITOR="$EDITOR"
 export GOPATH=$HOME/golang
 export GOROOT=/usr/lib/go
 export HISTSIZE=
@@ -25,17 +32,16 @@ export HISTTIMEFORMAT='%Y%m%d %H:%M:%S '
 set -o vi
 
 
-RVM_SCRIPTS="$HOME/.rvm/scripts/rvm" 
-GIT_COMPLETION="/usr/share/git/completion/git-completion.bash"
-BASH_COMPLETION="/usr/share/bash-completion/bash_completion"
-BASH_PROMPT="$HOME/.bash_prompt"
-BASHRC_LOCAL="$HOME/.bashrc_local"
-
-[[ -s "$RVM_SCRIPTS" ]] && source "$RVM_SCRIPTS"
-[[ -s "$GIT_COMPLETION" ]] && source "$GIT_COMPLETION"
-[[ -s "$BASH_COMPLETION" ]] && source "$BASH_COMPLETION"
-[[ -s "$BASH_PROMPT" ]] && source "$BASH_PROMPT"
-[[ -s "$BASHRC_LOCAL" ]] && source "$BASHRC_LOCAL"
+SOURCES=(
+    "$HOME/.bash_prompt"                             \
+    "$HOME/.bashrc_local"                            \
+    "$HOME/.rvm/scripts/rvm"                         \
+    "/usr/share/git/completion/git-completion.bash"  \
+    "/usr/share/bash-completion/bash_completion"     \
+)
+for source in ${SOURCES[*]}; do
+    [[ -s "$source" ]] && source "$source"
+done
 
 
 if type tmux > /dev/null        \
