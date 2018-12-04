@@ -12,10 +12,10 @@ else
     alias christine='grep -v pristine'
     alias cubic='flatpak run com.cubicsdr.App'
     alias esp='java -jar ~/usr/local/ESPlorer/ESPlorer.jar'
-    alias python='python3'
     alias httpd-rb='ruby -run -ehttpd . -p8000'
     alias httpd-py='python -m SimpleHTTPServer'
     alias httpd-git='git instaweb'
+    alias python='python3'
     alias top='htop'
     alias vi='vim'
 fi
