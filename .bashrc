@@ -47,6 +47,8 @@ done
 if type tmux > /dev/null        \
     && [ -n "$PS1" ]            \
     && [[ ! "$TERM" =~ tmux ]]  \
+    && [ -z "$SSH_CLIENT" ]     \
+    && [ -z "$SSH_TTY" ]        \
     && [ -z "$TMUX" ]; then
     if [ $(tmux list-sessions | wc -l) -gt 0 ]; then
         exec tmux a
