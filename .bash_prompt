@@ -5,4 +5,6 @@ if [ -s "$GIT_PROMPT" ]; then
     GIT_PS1_SHOWCOLORHINTS=true
     GIT_PS1_UNTRACKEDFILES=true
     PROMPT_COMMAND="__git_ps1 '\u@\h:\w' '\\$ '"
+else
+    export PS1='\u@\h:\w $ ' 
 fi
