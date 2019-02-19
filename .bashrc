@@ -16,7 +16,7 @@ if [ "$(uname)" = "Linux" ]; then
 fi
 
 alias christine='grep -v pristine'
-alias git-ssh-remote="git remote set-url origin $(git remote -v | grep push | awk '{print $2}' | sed 's/https:../git@/; s/.com\//.com:/')"
+alias git-ssh-remote="git remote set-url origin $(git remote get-url origin | sed 's/https:../git@/; s/.com\//.com:/')"
 alias httpd-rb='ruby -run -ehttpd . -p8000'
 alias httpd-py='python -m SimpleHTTPServer'
 alias httpd-git='git instaweb'
