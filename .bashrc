@@ -8,17 +8,21 @@ esac
 if [ "$(uname)" = "Darwin" ]; then
     alias date='gdate'
     alias docker-net-fix='sudo ifconfig vboxnet0 down && sudo ifconfig vboxnet0 up'
-else
-    alias christine='grep -v pristine'
+fi
+
+if [ "$(uname)" = "Linux" ]; then
     alias cubic='flatpak run com.cubicsdr.App'
     alias esp='java -jar ~/usr/local/ESPlorer/ESPlorer.jar'
-    alias httpd-rb='ruby -run -ehttpd . -p8000'
-    alias httpd-py='python -m SimpleHTTPServer'
-    alias httpd-git='git instaweb'
-    alias python='python3'
-    alias top='htop'
-    alias vi='vim'
 fi
+
+alias christine='grep -v pristine'
+alias git-ssh-remote="git remote set-url origin $(git remote -v | grep push | awk '{print $2}' | sed 's/https:../git@/; s/.com\//.com:/')"
+alias httpd-rb='ruby -run -ehttpd . -p8000'
+alias httpd-py='python -m SimpleHTTPServer'
+alias httpd-git='git instaweb'
+alias python='python3'
+alias top='htop'
+alias vi='vim'
 
 
 export EDITOR=vim
