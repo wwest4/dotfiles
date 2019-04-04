@@ -36,6 +36,13 @@ set modelines=0
 " maps
 map <leader>p :set paste!<CR>
 map <leader>l :set list!<CR>
+map <leader>b :call Pdb()<CR>
 
 " themes/colors
 color desert
+
+" functions
+function! Pdb()
+    let trace = expand("import pdb; pdb.set_trace()")
+    execute "normal o".trace
+endfunction
