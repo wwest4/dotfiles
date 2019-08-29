@@ -22,6 +22,7 @@ alias httpd-py='python -m SimpleHTTPServer'
 alias httpd-git='git instaweb'
 alias pytest='pytest -x -vv -f'
 alias python='python3'
+alias tac='tail -r'
 alias top='htop'
 alias vi='vim'
 
