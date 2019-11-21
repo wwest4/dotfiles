@@ -8,7 +8,6 @@ esac
 if [ "$(uname)" = "Darwin" ]; then
     alias date='gdate'
     alias docker-net-fix='sudo ifconfig vboxnet0 down && sudo ifconfig vboxnet0 up'
-    alias dns-cache-flush='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 fi
 
 if [ "$(uname)" = "Linux" ]; then
@@ -26,6 +25,7 @@ alias python='python3'
 alias tac='tail -r'
 alias top='htop'
 alias vi='vim'
+alias json2dict='python -c "import json, pprint, sys; sys.stdout.write(pprint.pformat(json.load(sys.stdin)))"'
 
 
 export EDITOR=vim
