@@ -8,6 +8,7 @@ esac
 if [ "$(uname)" = "Darwin" ]; then
     alias date='gdate'
     alias docker-net-fix='sudo ifconfig vboxnet0 down && sudo ifconfig vboxnet0 up'
+    alias dns-cache-flush='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 fi
 
 if [ "$(uname)" = "Linux" ]; then
